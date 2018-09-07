@@ -2,7 +2,7 @@
 
 ## 소개
 `React Native`로 간단한 덧셈이 되는 `Redux` 아키텍쳐 패턴을 적용한 간단한 셈플입니다.<br />
-개발 소스를 빌드해 실행해보면, 이해하는 데 더 도움이 되지 않을 까 싶습니다.
+개발 소스를 빌드해 실행해보면, 아키텍쳐를 이해하는 데 더 도움이 되지 않을 까 싶습니다.
 
 ## 결과 이미지 (GIF)
 
@@ -39,15 +39,15 @@
 
 ## 설명
 ### Redux란?
-시작이 되는 근원은 리엑티브 라고 할 수 있습니다.<br />
-리엑티브는 같은 말로 알엑스(Rx) 라고 부릅니다.<br />
-리엑티브 페러다임은 마이크로소프트가 창안한 개념으로 데이터의 흐름에 따른 변화를 만드는 비동기적인 프로그래밍 패러다임입니다.<br />
+시작이 되는 근원은 `리엑티브` 라고 할 수 있습니다.<br />
+리엑티브는 같은 말로 알엑스(`Rx`) 라고 부릅니다.<br />
+`리엑티브 페러다임`은 `마이크로소프트`가 창안한 개념으로 **데이터의 흐름에 따른 변화를 만드는 비동기적인 프로그래밍 패러다임**입니다.<br />
 기본 실행 모델이 데이터의 흐름을 통해 자동으로 전파하는 것입니다.<br />
 <br />
 RX 패러다임은 다양한 개발언어로 확장 되었는 데, <br />
-페이스북에서 만든 Flux 패턴의 구현체 중 하나입니다.<br />
+`페이스북`에서 만든 `Flux` 패턴의 구현체 중 하나입니다.<br />
 
-- [Redux 설명 링크](https://medium.com/@jang.wangsu/rn-react-native-redux-%EB%9E%80-reactive-%EB%B6%80%ED%84%B0-c089d4549edb)
+- [Redux 상세 설명 링크](https://medium.com/@jang.wangsu/rn-react-native-redux-%EB%9E%80-reactive-%EB%B6%80%ED%84%B0-c089d4549edb)
 
 ### Redux 간략 설명
 
@@ -133,7 +133,18 @@ export default function initStore() {
 ```
 
 #### Action(s)
-작성중
+
+- src/actions/[index.js](https://github.com/ClintJang/sample-react-native-redux-architecture-patterns/blob/master/src/actions/index.js)
+
+```jsx
+import * as calculatorAction from './calculatorAction';
+
+const ActionCreators = Object.assign({},   
+    calculatorAction,
+);
+
+export default ActionCreators;
+```
 
 #### Reducer(s)
 작성중
