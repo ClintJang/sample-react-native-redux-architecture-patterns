@@ -51,21 +51,23 @@ RX 패러다임은 다양한 개발언어로 확장 되었는 데, <br />
 
 ### Redux 간략 설명
 
+<img width="557" height="315" src="/Image/redux_desc00.png"></img>
+
 **`Redux`는 앱의 상태 모두를 `하나의 store`안에 `트리 구조`로 저장합니다.**  <br />
 <br />
-그 store를 변경시키는 것은 `action` (들) 뿐입니다.<br />
+그 **store를 변경시키는 것은 `action` (들)** 뿐입니다.<br />
 <br />
 action이 어떻게 (How) 변경시켜야 하는 지는 `reducer`(들)가 정의합니다.<br />
 <br />
 화면(`View`)들은 실제 화면을 표현하고, 내부 구성의 명칭은 중요하진 않겠지만 `component`들을 담는 것을 `Container`(들) 이라 지칭하겠습니다.<br />
 <br />
 Container(들)은 Store의 상태값이 변화되는 지 구독하고(subscribe, subscript) 있는 데, <br />
-redux에서는 `props`에 담아 넘겨줍니다. Props에 `selector`(들) 하고 있습니다.<br />
+redux에서는 `props`에 담아 넘겨줍니다. **Props에 `selector`(들)** 하고 있습니다.<br />
 <br />
-Container 의 화면에서는 사용하기 위해 `props를 state에 map` 하는 과정이 진행됩니다.<br />
+Container 의 화면에서는 사용하기 위해 **`props를 state에 map`** 하는 과정이 진행됩니다.<br />
 그리고 화면의 메인스레드 런루프에서 클릭등 이벤트가 발생해서 변경요청을 하면, <br />
 Container에서 `action`을 보내는 데, 그것을 `dispatch action`이라 합니다.<br />
-action을 dispatch하는 거죠....<br />
+**action을 dispatch**하는 거죠....<br />
 <br />
 추가적으로 state를 변경하기 위해 비동기 처리를 하는 경우가 있는 데 보통 대표적인 것이 네트워크 처리 이죠? 물론 그게 아니더라도 보통 비동기 처리를 하는 것이 대부분 일 것 같기도 합니다.<br /> 
 이렇게 `비동기 처리` 등을 위해 action과 reducer 사이에 `middleware`를 둡니다.<br />
