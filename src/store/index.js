@@ -5,7 +5,3 @@ export default function initStore() {
     const store = createStore( reducers );
     return store;
 }
-
-// export default function test() {
-
-// }

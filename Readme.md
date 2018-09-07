@@ -1,7 +1,7 @@
 # React Native Redux Sample Project
 
 ## 소개
-`React Native`로 간단한 덧셈이 되는 `Redux` 아키텍쳐 패턴을 적용한 셈플입니다.<br />
+`React Native`로 간단한 덧셈이 되는 `Redux` 아키텍쳐 패턴을 적용한 간단한 셈플입니다.<br />
 
 ## 결과 이미지 (GIF)
 
@@ -69,8 +69,41 @@ action을 dispatch하는 거죠....
 
 ### 상세 설명
 
+### App.js
+
+- [App.js](https://github.com/ClintJang/sample-react-native-redux-architecture-patterns/blob/master/App.js)
+
+```jsx
+import React, {Component} from 'react';
+import { Provider } from 'react-redux'
+import Root from './src/containers/Root'
+import initStore from './src/store';
+
+const store = initStore();
+
+export default class App extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <Root />
+      </Provider>
+    );
+  }
+}
+```
+
 #### Store
-작성중
+- src/store/[index.js](https://github.com/ClintJang/sample-react-native-redux-architecture-patterns/blob/master/src/store/index.js)
+
+```jsx
+import reducers from '../reducers';
+import { createStore } from 'redux';
+
+export default function initStore() {
+    const store = createStore( reducers );
+    return store;
+}
+```
 
 #### Action(s)
 작성중
