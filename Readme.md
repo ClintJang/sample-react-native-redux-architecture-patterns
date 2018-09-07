@@ -68,7 +68,7 @@ Container에서 `action`을 보내는 데, 그것을 `dispatch action`이라 합
 **action을 dispatch**하는 거죠....<br />
 <br />
 추가적으로 state를 변경하기 위해 비동기 처리를 하는 경우가 있는 데 보통 대표적인 것이 네트워크 처리 이죠? 물론 그게 아니더라도 보통 비동기 처리를 하는 것이 대부분 일 것 같기도 합니다.<br /> 
-이렇게 `비동기 처리` 등을 위해 **action과 reducer 사이에** **`middleware`**를 둡니다.<br />
+이렇게 `비동기 처리` 등을 위해 **action과 reducer 사이에** `middleware`를 둡니다.<br />
 <br />
 그 때 미들웨어에 `thunk`(들)과 `saga` (들).. 등 이(가) 있습니다.<br />
 
