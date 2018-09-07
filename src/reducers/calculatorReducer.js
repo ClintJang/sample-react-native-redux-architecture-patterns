@@ -7,7 +7,6 @@ const defaultState = {
         second : 0,
     },
 }
-// const count = 0;
 
 export default calculator = (state = defaultState, action) => {    
     // For Debugger
