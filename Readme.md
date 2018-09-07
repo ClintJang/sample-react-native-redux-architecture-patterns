@@ -261,6 +261,11 @@ export default class Main extends React.Component {
 ```
 
 ##### components
+- Map State To Props : Container 의 화면에서는 사용하기 위해 `props를 state에 map` 하는 과정이 진행됩니다.
+
+<br />그리고 화면의 메인스레드 런루프에서 클릭등 이벤트가 발생해서 변경요청을 하면, <br />
+
+- Map Dispatch To Props : Container에서 `action`을 보내는 데, 그것을 `dispatch action`이라 합니다. action을 dispatch하는 거죠....
 
 - src/components/[Calculator.js](https://github.com/ClintJang/sample-react-native-redux-architecture-patterns/blob/master/src/components/Calculator.js)
 
