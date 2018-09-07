@@ -17,11 +17,16 @@
 		- index.js
 		- calculatorAction.js
 		- types.js
+	- reducers
+		- index.js
+		- calculatorReducer.js
 	- components
 		- Calculator.js
 	- containers
 		- Main
+		    - index.js
 		- Root
+		    - index.js
 	- store
 		- index.js
 - App.js
