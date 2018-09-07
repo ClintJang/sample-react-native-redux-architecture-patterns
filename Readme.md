@@ -117,7 +117,7 @@ export default class App extends Component {
 ```
 
 #### Store
-> Redux는 앱의 상태 모두를 하나의 store안에 트리 구조로 저장합니다. 
+> Redux는 앱의 상태 모두를 `하나의 store`안에 `트리 구조`로 저장합니다. 
 
 - src/store/[index.js](https://github.com/ClintJang/sample-react-native-redux-architecture-patterns/blob/master/src/store/index.js)
 
@@ -129,6 +129,7 @@ export default function initStore() {
 ```
 
 #### Action(s)
+> store를 변경시키는 것은 `action` (들) 뿐입니다.
 
 - src/actions/[index.js](https://github.com/ClintJang/sample-react-native-redux-architecture-patterns/blob/master/src/actions/index.js)
 
@@ -170,11 +171,52 @@ export function updateSumValueSecond(num) {
 ```
 
 #### Reducer(s)
+- src/reducers/[index.js](https://github.com/ClintJang/sample-react-native-redux-architecture-patterns/blob/master/src/reducers/index.js)
 
 ```jsx
 export default combineReducers({
     calculator: CalculatorReducer,
 });
+```
+
+- src/reducers/[calculatorReducer.js](https://github.com/ClintJang/sample-react-native-redux-architecture-patterns/blob/master/src/reducers/calculatorReducer.js)
+
+```jsx
+const defaultState = {
+    result : 0,
+    sumInfo: {
+        frist : 0,
+        second : 0,
+    },
+}
+
+export default calculator = (state = defaultState, action) => {    
+    // For Debugger
+    // console.log('payload:' + action.payload);
+
+    switch (action.type) {
+        case types.CALCULATOR_UPDATE_SUM_FIRST:
+            return {
+                // ...state,
+                result : action.payload + state.sumInfo.second,
+                sumInfo: {
+                    frist:action.payload,
+                    second:state.sumInfo.second
+                }
+            };
+        case types.CALCULATOR_UPDATE_SUM_SECOND:
+            return {
+                // ...state,
+                result : action.payload + state.sumInfo.frist,
+                sumInfo: {
+                    frist:state.sumInfo.frist,
+                    second:action.payload
+                }
+            };
+        default:
+            return state;
+    }
+};
 ```
 
 #### View (components, containers)
