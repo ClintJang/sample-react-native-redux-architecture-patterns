@@ -74,6 +74,27 @@ action을 dispatch하는 거죠....<br />
 - 동작의 흐름을 보기위한 간단한 덧셈이 되는 셈플입니다.
 
 ### 상세 설명
+> 기본적인 환경설정 (npm 설치 등등)이 되어있다면, 소스를 내려받고 소스 최상위 폴더에서 아래 쉘 명령어를 실행합니다.
+
+```
+$ npm install 
+```
+
+그리고 iOS 안에 실행파일(SampleReduxCalculator.xcodeproj) 혹은 안드로이드 스튜디오를 열고 프로젝트를 열어서 프로젝트를 실행시킵니다.
+
+또는 
+
+```
+$ react-native start
+
+and 
+
+$ react-native run-ios
+or
+$ react-native run-android
+```
+
+그럼 구현된 소스 상세 내용을 알아보겠습니다.
 
 ### App.js
 
