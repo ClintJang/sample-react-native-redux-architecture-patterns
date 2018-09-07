@@ -51,8 +51,10 @@ RX 패러다임은 다양한 개발언어로 확장 되었는 데, <br />
 
 ### Redux 간략 설명
 
-Redux는 앱의 상태 모두를 하나의 store안에 트리 구조로 저장합니다.  <br />
-그 스토어를 변경시키는 것은 action (들) 뿐입니다.<br />
+**`Redux`는 앱의 상태 모두를 `하나의 store`안에 `트리 구조`로 저장합니다.**  <br />
+<br />
+그 store를 변경시키는 것은 `action` (들) 뿐입니다.<br />
+<br />
 action이 어떻게 (How) 변경시켜야 하는 지는 reducer(들)가 정의합니다.<br />
 화면(View)들은 중요하진 않겠지만 component들을 담는 것을 Container(들) 이라 지칭하겠습니다.<br />
 Container(들)은 Store의 상태값이 변화되는 지 구독하고(subscribe, subscript) 있는 데, redux에서는 props에 담아 넘겨줍니다. Props에 selector(들) 하고 있습니다.<br />
@@ -120,6 +122,8 @@ export default class App extends Component {
 ```
 
 #### Store
+> Redux는 앱의 상태 모두를 하나의 store안에 트리 구조로 저장합니다. 
+
 - src/store/[index.js](https://github.com/ClintJang/sample-react-native-redux-architecture-patterns/blob/master/src/store/index.js)
 
 ```jsx
@@ -146,8 +150,156 @@ const ActionCreators = Object.assign({},
 export default ActionCreators;
 ```
 
+- src/actions/[types.js](https://github.com/ClintJang/sample-react-native-redux-architecture-patterns/blob/master/src/actions/types.js)
+
+```
+const types = {
+    CALCULATOR_UPDATE_SUM_FIRST: 'CALCULATOR_UPDATE_SUM_FIRST',
+    CALCULATOR_UPDATE_SUM_SECOND: 'CALCULATOR_UPDATE_SUM_SECOND',
+};
+
+export default types;
+```
+
+- src/actions/[calculatorAction.js](https://github.com/ClintJang/sample-react-native-redux-architecture-patterns/blob/master/src/actions/calculatorAction.js)
+
+```
+import types from './types';
+
+export function updateSumValueFirst(num) {
+    return {
+        type: types.CALCULATOR_UPDATE_SUM_FIRST,
+        payload: num
+    };
+}
+
+export function updateSumValueSecond(num) {
+    return {
+        type: types.CALCULATOR_UPDATE_SUM_SECOND,
+        payload: num
+    };
+}
+```
+
 #### Reducer(s)
-작성중
+
+```
+import { combineReducers } from 'redux';
+import CalculatorReducer from './calculatorReducer';
+
+export default combineReducers({
+    calculator: CalculatorReducer,
+});
+```
 
 #### View (components, containers)
-작성중
+
+##### containers
+```
+import React, {Component} from 'react';
+import Calculator from '../../components/Calculator';
+
+export default class Main extends React.Component {
+    render() {
+        return (
+            <Calculator />
+        );
+    }
+}
+```
+
+##### components
+
+```
+import React, { Component } from 'react';
+import { View, Text, TextInput, StyleSheet } from 'react-native';
+import {connect} from 'react-redux';
+import ActionCreator from '../actions';
+
+
+class Calculator extends Component {
+    constructor(props, context) {
+        super(props, context);
+        this.props.updateFirst = this.props.updateFirst.bind(this);
+    }
+
+    render() {
+        return (
+            <View style={calculatorStyles.container}>
+                <TextInput 
+                    style={ calculatorStyles.input }
+                    keyboardType={'number-pad'} 
+                    maxLength={1}
+                    placeholder={'0'}
+                    onChangeText={(text) =>  {
+                        this.setState({text}); 
+                        var numberAsInt = 0
+                        if (text !== '') {
+                            numberAsInt = parseInt(text, 10);
+                        }
+                        console.log(numberAsInt);
+                        this.props.updateFirst(numberAsInt); 
+                    }}
+                    // onSubmitEditing = {() => { this.props.updateFirst(1); }}
+                    // placeholderTextColor = {'red'}
+                ></TextInput>
+                <View style={calculatorStyles.view}>
+                    <Text
+                        s3yle={ calculatorStyles.text }
+                    >+</Text>
+                </View>
+                <TextInput 
+                    style={ calculatorStyles.input }
+                    keyboardType={'number-pad'} 
+                    maxLength={1}
+                    placeholder={'0'}
+                    onChangeText={(text) =>  {
+                        this.setState({text}); 
+                        var numberAsInt = 0
+                        if (text !== '') {
+                            numberAsInt = parseInt(text, 10);
+                        }
+                        console.log(numberAsInt);
+                        this.props.updateSecond(numberAsInt); 
+                    }}
+                ></TextInput>
+                <View style={ calculatorStyles.view }>
+                    <Text
+                        style={ calculatorStyles.text }
+                    >=</Text>
+                </View>
+                <View style={ calculatorStyles.view }>
+                    <Text 
+                        style={ calculatorStyles.text }
+                    >{this.props.result}</Text>
+                </View>
+                
+            </View>
+        );
+    }
+}
+
+function mapStateToProps(state) {
+    return {
+        result: state.calculator.result,
+        first: state.calculator.sumInfo.first,
+        second: state.calculator.sumInfo.second
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        updateFirst:(num) => {
+            dispatch(ActionCreator.updateSumValueFirst(num));
+
+        },
+        updateSecond:(num) => {
+            dispatch(ActionCreator.updateSumValueSecond(num));
+        }
+    };
+}
+
+.. (중략) ..
+
+export default connect(mapStateToProps, mapDispatchToProps)(Calculator);
+```
