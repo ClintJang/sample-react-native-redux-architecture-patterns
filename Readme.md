@@ -56,7 +56,9 @@ RX 패러다임은 다양한 개발언어로 확장 되었는 데, <br />
 그 store를 변경시키는 것은 `action` (들) 뿐입니다.<br />
 <br />
 action이 어떻게 (How) 변경시켜야 하는 지는 `reducer`(들)가 정의합니다.<br />
-화면(View)들은 중요하진 않겠지만 component들을 담는 것을 Container(들) 이라 지칭하겠습니다.<br />
+<br />
+화면(`View`)들은 실제 화면을 표현하고, 내부 구성의 명칭은 중요하진 않겠지만 `component`들을 담는 것을 `Container`(들) 이라 지칭하겠습니다.<br />
+<br />
 Container(들)은 Store의 상태값이 변화되는 지 구독하고(subscribe, subscript) 있는 데, redux에서는 props에 담아 넘겨줍니다. Props에 selector(들) 하고 있습니다.<br />
 Container 의 화면에서는 사용하기 위해 props를 state에 map 하는 과정이 진행됩니다.<br />
 그리고 화면의 메인스레드 런루프에서 클릭등 이벤트가 발생해서 변경요청을 하면, <br />
@@ -222,6 +224,7 @@ export default calculator = (state = defaultState, action) => {
 ```
 
 #### View (components, containers)
+> 화면(`View`)들은 실제 화면을 표현하고, 내부 구성의 명칭은 중요하진 않겠지만 `component`들을 담는 것을 `Container`(들) 이라 지칭하겠습니다.
 
 ##### containers
 
@@ -254,6 +257,8 @@ export default class Main extends React.Component {
 ```
 
 ##### components
+
+- src/components/[Calculator.js](https://github.com/ClintJang/sample-react-native-redux-architecture-patterns/blob/master/src/components/Calculator.js)
 
 ```jsx
 
@@ -345,3 +350,6 @@ function mapDispatchToProps(dispatch) {
 
 export default connect(mapStateToProps, mapDispatchToProps)(Calculator);
 ```
+
+<br /><br />
+즐거운 하루 되세요 🙇‍ <br />
