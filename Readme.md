@@ -55,7 +55,7 @@ RX 패러다임은 다양한 개발언어로 확장 되었는 데, <br />
 <br />
 그 store를 변경시키는 것은 `action` (들) 뿐입니다.<br />
 <br />
-action이 어떻게 (How) 변경시켜야 하는 지는 reducer(들)가 정의합니다.<br />
+action이 어떻게 (How) 변경시켜야 하는 지는 `reducer`(들)가 정의합니다.<br />
 화면(View)들은 중요하진 않겠지만 component들을 담는 것을 Container(들) 이라 지칭하겠습니다.<br />
 Container(들)은 Store의 상태값이 변화되는 지 구독하고(subscribe, subscript) 있는 데, redux에서는 props에 담아 넘겨줍니다. Props에 selector(들) 하고 있습니다.<br />
 Container 의 화면에서는 사용하기 위해 props를 state에 map 하는 과정이 진행됩니다.<br />
@@ -171,6 +171,8 @@ export function updateSumValueSecond(num) {
 ```
 
 #### Reducer(s)
+> action이 어떻게 (How) 변경시켜야 하는 지는 `reducer`(들)가 정의합니다.
+
 - src/reducers/[index.js](https://github.com/ClintJang/sample-react-native-redux-architecture-patterns/blob/master/src/reducers/index.js)
 
 ```jsx
@@ -222,8 +224,26 @@ export default calculator = (state = defaultState, action) => {
 #### View (components, containers)
 
 ##### containers
-```jsx
 
+- src/containers/Root/[index.js](https://github.com/ClintJang/sample-react-native-redux-architecture-patterns/blob/master/src/containers/Root/index.js)
+
+```jsx
+export default class Root extends React.Component {
+    render() {
+        return (
+            <View style={{ backgroundColor:'grey'}}>
+                <Text style={{ marginLeft:20, marginTop:100, fontSize:24 }}>React Native Redux Sample</Text>
+                <Main />
+            </View>
+            
+        );
+    }
+}
+```
+
+- src/containers/Main/[index.js](https://github.com/ClintJang/sample-react-native-redux-architecture-patterns/blob/master/src/containers/Main/index.js)
+
+```jsx
 export default class Main extends React.Component {
     render() {
         return (
