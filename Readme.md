@@ -16,7 +16,7 @@
 - scr
 	- store
 		- index.js
-    - actions
+	- actions
 		- index.js
 		- calculatorAction.js
 		- types.js
