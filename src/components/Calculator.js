@@ -7,7 +7,6 @@ import ActionCreator from '../actions';
 class Calculator extends Component {
     constructor(props, context) {
         super(props, context);
-        this.props.updateFirst = this.props.updateFirst.bind(this);
     }
 
     render() {
