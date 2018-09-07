@@ -103,11 +103,6 @@ $ react-native run-android
 - [App.js](https://github.com/ClintJang/sample-react-native-redux-architecture-patterns/blob/master/App.js)
 
 ```jsx
-import React, {Component} from 'react';
-import { Provider } from 'react-redux'
-import Root from './src/containers/Root'
-import initStore from './src/store';
-
 const store = initStore();
 
 export default class App extends Component {
@@ -127,9 +122,6 @@ export default class App extends Component {
 - src/store/[index.js](https://github.com/ClintJang/sample-react-native-redux-architecture-patterns/blob/master/src/store/index.js)
 
 ```jsx
-import reducers from '../reducers';
-import { createStore } from 'redux';
-
 export default function initStore() {
     const store = createStore( reducers );
     return store;
@@ -141,8 +133,6 @@ export default function initStore() {
 - src/actions/[index.js](https://github.com/ClintJang/sample-react-native-redux-architecture-patterns/blob/master/src/actions/index.js)
 
 ```jsx
-import * as calculatorAction from './calculatorAction';
-
 const ActionCreators = Object.assign({},   
     calculatorAction,
 );
@@ -152,7 +142,7 @@ export default ActionCreators;
 
 - src/actions/[types.js](https://github.com/ClintJang/sample-react-native-redux-architecture-patterns/blob/master/src/actions/types.js)
 
-```
+```jsx
 const types = {
     CALCULATOR_UPDATE_SUM_FIRST: 'CALCULATOR_UPDATE_SUM_FIRST',
     CALCULATOR_UPDATE_SUM_SECOND: 'CALCULATOR_UPDATE_SUM_SECOND',
@@ -163,9 +153,7 @@ export default types;
 
 - src/actions/[calculatorAction.js](https://github.com/ClintJang/sample-react-native-redux-architecture-patterns/blob/master/src/actions/calculatorAction.js)
 
-```
-import types from './types';
-
+```jsx
 export function updateSumValueFirst(num) {
     return {
         type: types.CALCULATOR_UPDATE_SUM_FIRST,
@@ -183,10 +171,7 @@ export function updateSumValueSecond(num) {
 
 #### Reducer(s)
 
-```
-import { combineReducers } from 'redux';
-import CalculatorReducer from './calculatorReducer';
-
+```jsx
 export default combineReducers({
     calculator: CalculatorReducer,
 });
@@ -195,9 +180,7 @@ export default combineReducers({
 #### View (components, containers)
 
 ##### containers
-```
-import React, {Component} from 'react';
-import Calculator from '../../components/Calculator';
+```jsx
 
 export default class Main extends React.Component {
     render() {
@@ -210,12 +193,9 @@ export default class Main extends React.Component {
 
 ##### components
 
-```
-import React, { Component } from 'react';
-import { View, Text, TextInput, StyleSheet } from 'react-native';
-import {connect} from 'react-redux';
-import ActionCreator from '../actions';
+```jsx
 
+.. (중략)..
 
 class Calculator extends Component {
     constructor(props, context) {
