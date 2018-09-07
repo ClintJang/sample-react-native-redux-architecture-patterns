@@ -5,6 +5,8 @@
 
 ## 결과 이미지 (GIF)
 
+<img width="268" height="480" src="/Image/result_image00.gif"></img>
+
 ## 주요 구조
 
 ```
