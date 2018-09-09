@@ -43,7 +43,7 @@
 기본 실행 모델이 데이터의 흐름을 통해 자동으로 전파하는 것입니다.<br />
 <br />
 RX 패러다임은 다양한 개발언어로 확장 되었는 데, <br />
-`페이스북`에서 만든 `Flux` 패턴의 구현체 중 하나입니다.<br />
+Redux는 `페이스북`에서 만든 `Flux` 패턴의 구현체 중 하나입니다.<br />
 
 - [Redux 상세 설명 링크](https://medium.com/@jang.wangsu/rn-react-native-redux-%EB%9E%80-reactive-%EB%B6%80%ED%84%B0-c089d4549edb)
 
