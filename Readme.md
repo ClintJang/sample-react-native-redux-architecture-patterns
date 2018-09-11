@@ -1,6 +1,5 @@
 # React Native Redux Sample Project
 
-## Info
 `React Native`로 간단한 덧셈이 되는 `Redux` 아키텍쳐 패턴을 적용한 간단한 셈플입니다.<br />
 개발 소스를 받아서 빌드해 실행해보면, 아키텍쳐를 이해하는 데 더 도움이 되지 않을 까 싶습니다. <br /><br />
 🌈 **Result Image (GIF)**<br />
