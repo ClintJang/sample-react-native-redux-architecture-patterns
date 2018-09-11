@@ -89,26 +89,26 @@ var FONT_CALCULATOR_DEFULT = 18;
 
 const calculatorStyles = StyleSheet.create({
     container: {
-        flex:1, 
         flexDirection:'row',
         justifyContent: 'center', 
         marginTop:50,
-        backgroundColor:'transparent',
+        backgroundColor:'white', 
     },
     input: {
         width: 50 , 
         height: 50, 
-        backgroundColor:'white', 
+        backgroundColor:'transparent', 
         fontSize: FONT_CALCULATOR_DEFULT,
         justifyContent: 'center',
     },
     text: {
         fontSize: FONT_CALCULATOR_DEFULT,
+        backgroundColor:'transparent', 
     },
     view: {
         width: 50 , 
         height: 50, 
-        backgroundColor:'white', 
+        backgroundColor:'transparent', 
         justifyContent: 'center',
     },
   });

@@ -4,7 +4,16 @@
 `React Native`로 간단한 덧셈이 되는 `Redux` 아키텍쳐 패턴을 적용한 간단한 셈플입니다.<br />
 개발 소스를 받아서 빌드해 실행해보면, 아키텍쳐를 이해하는 데 더 도움이 되지 않을 까 싶습니다. <br /><br />
 🌈 **Result Image (GIF)**<br />
-<img width="268" height="480" src="/Image/result_image00.gif"></img>
+<table>
+  <tr>
+	<th>iOS</th> 
+	<th>android</th>
+  </tr>
+  <tr>
+    <td><img width="268" height="480" src="/Image/result_image_ios_01.gif"></img></td>
+  	<td><img width="270" height="480" src="/Image/result_image_and_01.gif"></img></td>
+  </tr>
+</table>
 
 ## The Main Structure
 
@@ -48,8 +57,19 @@ Redux는 `페이스북`에서 만든 `Flux` 패턴의 구현체 중 하나입니
 - [Redux 상세 설명 링크](https://medium.com/@jang.wangsu/rn-react-native-redux-%EB%9E%80-reactive-%EB%B6%80%ED%84%B0-c089d4549edb)
 
 ### Redux 간략 설명
+<table>
+  <tr>
+	<th>iOS</th> 
+	<th>android</th>
+  </tr>
+    </tr>
+    <tr>
+    <td><img width="557" height="315" src="/Image/redux_desc00.png"></img></td>
+  	<td><img width="557" height="315" src="/Image/redux_desc00.png"></img></td>
+  </tr>
+</table>
 
-<img width="557" height="315" src="/Image/redux_desc00.png"></img>
+
 
 **`Redux`는 앱의 상태 모두를 `하나의 store`안에 `트리 구조`로 저장합니다.**  <br />
 <br />
