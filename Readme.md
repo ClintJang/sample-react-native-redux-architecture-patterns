@@ -57,18 +57,8 @@ Redux는 `페이스북`에서 만든 `Flux` 패턴의 구현체 중 하나입니
 - [Redux 상세 설명 링크](https://medium.com/@jang.wangsu/rn-react-native-redux-%EB%9E%80-reactive-%EB%B6%80%ED%84%B0-c089d4549edb)
 
 ### Redux 간략 설명
-<table>
-  <tr>
-	<th>iOS</th> 
-	<th>android</th>
-  </tr>
-    </tr>
-    <tr>
-    <td><img width="557" height="315" src="/Image/redux_desc00.png"></img></td>
-  	<td><img width="557" height="315" src="/Image/redux_desc00.png"></img></td>
-  </tr>
-</table>
 
+<img width="557" height="315" src="/Image/redux_desc00.png"></img>
 
 
 **`Redux`는 앱의 상태 모두를 `하나의 store`안에 `트리 구조`로 저장합니다.**  <br />
