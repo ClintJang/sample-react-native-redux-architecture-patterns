@@ -71,7 +71,7 @@ action이 **어떻게 (How) 변경**시켜야 하는 지는 **`reducer`**(들)�
 Container(들)은 Store의 상태값이 변화되는 지 구독하고(subscribe, subscript) 있는 데, <br />
 redux에서는 `props`에 담아 넘겨줍니다. **Props에 `selector`(들)** 하고 있습니다.<br />
 <br />
-Container 의 화면에서는 사용하기 위해 **`props를 state에 map`** 하는 과정이 진행됩니다.<br />
+`props`에 담아 넘겨준다는 것을 조금 더 상세하게 설명드리면, Container 의 화면에서는 사용하기 위해 **`props에 state를 map`** 하는 과정이 진행됩니다.<br />
 그리고 화면의 메인스레드 런루프에서 클릭등 이벤트가 발생해서 변경요청을 하면, <br />
 Container에서 `action`을 보내는 데, 그것을 `dispatch action`이라 합니다.<br />
 **action을 dispatch**하는 거죠....<br />
@@ -276,7 +276,7 @@ export default class Main extends React.Component {
 ```
 
 ##### components
-- Map State To Props : Container 의 화면에서는 사용하기 위해 `props를 state에 map` 하는 과정이 진행됩니다.
+- Map State To Props : Container 의 화면에서는 사용하기 위해 `props에 state를 map` 하는 과정이 진행됩니다.
 
 <br />그리고 화면의 메인스레드 런루프에서 클릭등 이벤트가 발생해서 변경요청을 하면, <br />
 
