@@ -132,13 +132,19 @@ export default class App extends Component {
 ```
 
 #### Store
-> Redux는 앱의 상태 모두를 `하나의 store`안에 `트리 구조`로 저장합니다. 
+> Redux는 앱의 상태 모두를 `하나의 store`안에 `트리 구조`로 저장합니다. <br />
+스토어(Store)에는 전체 상태의 구조를 유지하기 위해.. <br />변화시키며, 변화 시킬 데이터 구조를 가지고 있는 reducer(들)과 추가로 필요한 상태 트리구조 정보 또는 기타 변화시키는 역활을 담당하는 미들웨어 정보를 가지고 생성합니다.
 
 - src/store/[index.js](https://github.com/ClintJang/sample-react-native-redux-architecture-patterns/blob/master/src/store/index.js)
 
 ```jsx
 export default function initStore() {
-    const store = createStore( reducers );
+    const store = createStore( 
+        reducers,
+        applyMiddleware(
+            // Middleware will not be applied to this sample.
+        ), 
+    );
     return store;
 }
 ```
